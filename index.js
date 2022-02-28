@@ -33,7 +33,7 @@ function has_horny(str) {
     if (typeof(str) != 'string') return false;
 
     let strLower = str.toLowerCase();
-    if (strLower.match(/(cum|fap|wank|masturbate)/gm) != null) return true;
+    if (strLower.match(/(cum|fap|wank|masturbat)/gm) != null) return true;
 }
 
 function log_msg(msg) {
