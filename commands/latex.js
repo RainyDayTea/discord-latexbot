@@ -15,7 +15,7 @@ module.exports = {
         client = options.client;
         init = true;
         browser = await puppeteer.launch({ 
-            headless: true
+            ignoreDefaultArgs: ['--disable-extensions']
         });
     },
     execf: async(msg, args) => {
