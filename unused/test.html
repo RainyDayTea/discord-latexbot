@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<!-- KaTeX requires the use of the HTML5 doctype. Without it, KaTeX may not render properly -->
+<html>
+  <head>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.css" integrity="sha384-KiWOvVjnN8qwAZbuQyWDIbfCLFhLXNETzBQjA/92pIowpC0d2O3nppDGQVgwd2nB" crossorigin="anonymous">
+
+    <!-- The loading of KaTeX is deferred to speed up page rendering -->
+    <script src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.js" integrity="sha384-0fdwu/T/EQMsQlrHCCHoH10pkPLlKA1jL5dFyUOvB3lfeT2540/2g6YgSi2BL14p" crossorigin="anonymous"></script>
+  </head>
+  <body>
+    <span id="eqn"></span>
+    <script type="text/javascript">
+        katex.render("\\oint_{\\partial B_\\epsilon(p)} F \\cdot \\vec{n} \\ dS = \\sum_{i=1}^k \\partial_i F_i, \\ F: (U \\subseteq \\mathbb{R}^k) \\to \\mathbb{R}^k", 
+          document.getElementById("eqn"), 
+          {
+            displayMode: true,
+            throwOnError: true,
+            output: "html"
+          }
+        );
+    </script>
+  </body>
+</html>
+
