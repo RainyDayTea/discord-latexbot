@@ -5,6 +5,16 @@ const puppeteer = require('puppeteer');
 const { exit } = require('process');
 
 const template = fs.readFileSync('./commands/template.html', 'utf-8');
+const macros = {
+    "\\R": "\\mathbb{R}",
+    "\\Z": "\\mathbb{Z}",
+    "\\N": "\\mathbb{N}",
+    "\\Q": "\\mathbb{Q}",
+    "\\C": "\\mathbb{C}",
+    "\\epsilon": "\\varepsilon",
+    "\\emptyset": "\\varnothing"
+}
+
 let client = null;
 let init = false;
 let browser;
@@ -15,7 +25,8 @@ module.exports = {
         client = options.client;
         init = true;
         browser = await puppeteer.launch({ 
-            ignoreDefaultArgs: ['--disable-extensions']
+            ignoreDefaultArgs: ['--disable-extensions'],
+            args: ['--no-sandbox']
         });
     },
     execf: async(msg, args) => {
@@ -63,7 +74,8 @@ function toHtmlString(latexString) {
     let newStr = template.slice().replace('<placeholder></placeholder>', katex.renderToString(latexString, {
         throwOnError: false,
         displayMode: true,
-        output: 'html'
+        output: 'html',
+        macros
     }));
     return newStr;
 }
